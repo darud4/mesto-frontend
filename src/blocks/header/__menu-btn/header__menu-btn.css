@@ -1,0 +1,22 @@
+.header__menu-btn {
+  display: none;
+  background-image: url(../../../images/icon-menu.png);
+  background-size: cover;
+  background-position: center;
+  width: 24px;
+  height: 18px;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  grid-area: action;
+}
+
+.header__menu-btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 520px) {
+  .header__menu-btn {
+    display: block;
+    margin: 32px 30px 32px 0;
+  }
+}

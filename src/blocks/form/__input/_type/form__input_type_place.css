@@ -1,0 +1,9 @@
+.form__input_type_place {
+  padding-bottom: 7px;
+}
+
+@media screen and (max-width: 628px) {
+  .form__input_type_place {
+    padding-bottom: 9px;
+  }
+}

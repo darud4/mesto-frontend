@@ -1,0 +1,7 @@
+.popup__container {
+  margin: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  box-sizing: border-box;
+}

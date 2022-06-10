@@ -1,0 +1,12 @@
+.form {
+  width: 100%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 628px) {
+  .form {
+    padding-top: 75px;
+  }}

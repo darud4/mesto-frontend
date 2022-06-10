@@ -1,0 +1,8 @@
+.popup__caption_big {
+  color: black;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29px;
+  text-align: center;
+  display: block;
+}

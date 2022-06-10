@@ -1,0 +1,11 @@
+.card__image {
+  grid-area: image;
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__image:hover {
+  opacity: 0.8;
+}

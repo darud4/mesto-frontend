@@ -1,0 +1,29 @@
+.profile {
+  width: 100%;
+  display: grid;
+  grid-template-areas:
+    "photo info add"
+    "photo prof add";
+  grid-template-columns: min-content auto min-content;
+  grid-template-rows: 60% 40%;
+  column-gap: 18px;
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 928px) {
+  .profile {
+    margin: 0 auto;
+    grid-template-areas:
+      "photo"
+      "info"
+      "prof"
+      "add";
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 8px;
+    padding-bottom: 30px;
+  }
+}

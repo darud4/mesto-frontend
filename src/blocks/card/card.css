@@ -1,0 +1,15 @@
+.card {
+  display: grid;
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid black;
+  grid-template-areas:
+    "image image"
+    "title like";
+  grid-template-columns: auto min-content;
+  grid-template-rows: min-content 80px;
+  background-color: white;
+  max-width: 282px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
