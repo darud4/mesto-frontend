@@ -1,4 +1,4 @@
-import { baseUrl } from '../config';
+import { CONFIG } from '../config';
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
@@ -80,7 +80,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl,
+  baseUrl: CONFIG.baseUrl,
   headers: {
     'Content-Type': 'application/json'
   }

@@ -1,4 +1,6 @@
-import { baseUrl } from '../config';
+import { CONFIG } from '../config';
+
+const baseUrl = CONFIG.baseUrl;
 
 function makeRequest(url, props) {
     return fetch(url, props)
