@@ -1,10 +1,17 @@
 import { CONFIG } from '../config';
 
-const baseUrl = CONFIG.baseUrl;
+const { baseUrl, mode } = CONFIG;
+
+function fetchDemo(url, props) {
+    console.log('fetchDemo', url, props);
+    return {};
+}
 
 function makeRequest(url, props) {
-    return fetch(url, props)
-        .then(response => response.ok ? response.json() : Promise.reject({ errorCode: response.status, errorText: response.statusText }));
+    return mode === 'demo' ?
+        fetchDemo(url, props)
+        : fetch(url, props)
+            .then(response => response.ok ? response.json() : Promise.reject({ errorCode: response.status, errorText: response.statusText }));
 
 }
 
