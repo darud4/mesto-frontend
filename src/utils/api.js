@@ -1,3 +1,4 @@
+import { baseUrl } from '../config';
 class Api {
   constructor(options) {
     this._baseUrl = options.baseUrl;
@@ -12,9 +13,7 @@ class Api {
     const url = `${this._baseUrl}/cards`;
     const params = {
       headers: { authorization: this._headers.authorization },
-      //      credentials: 'include',
     };
-    console.log('getInitialCards', url, params);
     return this._makeRequest(url, params);
   }
 
@@ -23,7 +22,6 @@ class Api {
     const params = {
       method: 'POST',
       headers: this._headers,
-      //      credentials: 'include',
       body: JSON.stringify({ name: place, link })
     };
     return this._makeRequest(url, params);
@@ -33,7 +31,6 @@ class Api {
     const url = `${this._baseUrl}/cards/${cardId}`;
     const params = {
       method: 'DELETE',
-      //      credentials: 'include',
       headers: this._headers,
     };
     return this._makeRequest(url, params);
@@ -43,7 +40,6 @@ class Api {
     const url = `${this._baseUrl}/cards/${cardId}/likes`;
     const params = {
       method: set ? 'DELETE' : 'PUT',
-      //      credentials: 'include',
       headers: this._headers,
     };
     return this._makeRequest(url, params);
@@ -52,7 +48,6 @@ class Api {
   getUserInfo() {
     const url = `${this._baseUrl}/users/me`;
     const params = {
-      //      credentials: 'include',
       headers: { authorization: this._headers.authorization }
     };
     return this._makeRequest(url, params);
@@ -62,7 +57,6 @@ class Api {
     const url = `${this._baseUrl}/users/me`;
     const params = {
       method: 'PATCH',
-      //      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({ name, about })
     };
@@ -73,7 +67,6 @@ class Api {
     const url = `${this._baseUrl}/users/me/avatar`;
     const params = {
       method: 'PATCH',
-      //      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({ avatar }),
     };
@@ -87,9 +80,8 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://api.darud4-pr15.nomoredomains.xyz',
+  baseUrl,
   headers: {
-    //      authorization: 'ed327024-1080-4e52-9293-fa5bb21b97f8',
     'Content-Type': 'application/json'
   }
 });

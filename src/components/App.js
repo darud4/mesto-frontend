@@ -62,9 +62,7 @@ function App() {
   }, [history]);
 
   React.useEffect(() => {
-    console.log('checking localStorage for jwt');
     const token = localStorage.getItem('jwt');
-    console.log(token);
     if (token) checkToken(token);
   }, [checkToken]);
 
@@ -74,8 +72,6 @@ function App() {
         .then(([userInfo, cards]) => {
           setCurrentUser(userInfo);
           setCards(cards);
-          console.log(userInfo);
-          console.log(cards);
         })
         .catch((err) =>
           console.log(texts.INITIAL_LOADING_ERROR, err)
@@ -166,9 +162,7 @@ function App() {
 
   function handleLogin(username, password) {
     auth.doLogin(username, password).then(res => {
-      //      console.log(res, res.token);
       if (res && res.token) {
-        //        console.log('success');
         setJwt(res.token);
         api.setToken(res.token);
         localStorage.setItem('jwt', res.token);

@@ -1,4 +1,4 @@
-const baseUrl = 'https://api.darud4-pr15.nomoredomains.xyz';
+import { baseUrl } from '../config';
 
 function makeRequest(url, props) {
     return fetch(url, props)
@@ -7,16 +7,13 @@ function makeRequest(url, props) {
 }
 
 export function checkToken(token) {
-    //    console.log('checkToken fired');
     const url = baseUrl + '/users/me';
     const headers = {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,
     };
     const props = {
-        //        method: 'GET',
         headers: headers,
-        //        credentials: 'include',
 
     };
     return makeRequest(url, props);
@@ -37,7 +34,6 @@ export function doLogin(email, password) {
 }
 
 export function doSignup(email, password) {
-    console.log(email, password);
     const url = baseUrl + '/signup';
     const headers = {
         "Content-Type": "application/json"
