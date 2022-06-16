@@ -3,8 +3,11 @@ import { CONFIG } from '../config';
 const { baseUrl, mode } = CONFIG;
 
 function fetchDemo(url, props) {
-    console.log('fetchDemo', url, props);
-    return {};
+    //    console.log('fetchDemo', url, props);
+    if (url === baseUrl + '/users/me')
+        return Promise.resolve({ email: 'demo@email.ru' });
+    if (url === baseUrl + '/signin')
+        return Promise.resolve({ email: 'demo@email.ru', token: 'demoToken' });
 }
 
 function makeRequest(url, props) {

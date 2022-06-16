@@ -1,8 +1,12 @@
 import { CONFIG } from '../config';
+import { demoApi } from './demoApi';
+
 class Api {
-  constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
+  constructor({ baseUrl, headers, mode, customFetch }) {
+    this._baseUrl = baseUrl;
+    this._headers = headers;
+    this._mode = mode;
+    this._customFetch = customFetch;
   }
 
   setToken(token) {
@@ -74,14 +78,18 @@ class Api {
   }
 
   _makeRequest(url, params) {
-    return fetch(url, params)
-      .then(response => response.ok ? response.json() : Promise.reject({ errorCode: response.status, errorText: response.statusText }));
+    return this._mode === 'demo' ?
+      this._customFetch(url, params)
+      : fetch(url, params)
+        .then(response => response.ok ? response.json() : Promise.reject({ errorCode: response.status, errorText: response.statusText }));
   }
 }
 
-export const api = new Api({
-  baseUrl: CONFIG.baseUrl,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-});
+// export const api = new Api({
+//   baseUrl: CONFIG.baseUrl,
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+// });
+
+export const api = demoApi;
