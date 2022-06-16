@@ -49,6 +49,8 @@ function App() {
   const handleEditProfileClick = () => setProfilePopupVisibility(true);
   const handleAddPlaceClick = () => setPlacePopupVisibility(true);
 
+  React.useEffect(() => console.log(cards), [cards]);
+
   const checkToken = React.useCallback((token) => {
     auth.checkToken(token).then(res => {
       if (res && res.email) {

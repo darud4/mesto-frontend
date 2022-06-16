@@ -92,4 +92,4 @@ class Api {
 //   },
 // });
 
-export const api = demoApi;
+export { demoApi as api };

@@ -10,7 +10,7 @@ const unsetLike = '{"likes":[{"name":"Юджин Крабс","about":"Жадны
 
 class DemoApi {
     constructor(cards) {
-        this._cards = cards;
+        this._cardsList = [...cards];
     }
 
     setToken(token) {
@@ -18,14 +18,15 @@ class DemoApi {
     }
 
     getInitialCards() {
-        return Promise.resolve(this._cards);
+        return Promise.resolve(this._cardsList);
     }
 
     addCard({ place, link }) {
         const cardId = Math.floor(Math.random()*899999999) + 100000000;
         const obj = { likes: [], name: place, link, owner: myId, _id: cardId }
-        this._cards.push({...obj});
-        console.log(obj, this._cards);
+        this._cardsList = [obj, ...this._cardsList];
+//        this._cardsList.push(obj);
+        console.log(obj, this._cardsList);
         return Promise.resolve({...obj});
     }
 
