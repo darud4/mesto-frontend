@@ -35,7 +35,10 @@ class DemoApi {
     }
 
     likeCard(cardId, set) {
-        return Promise.resolve(JSON.parse(set ? setLike : unsetLike));
+        const card = this._cardsList.find(i => i._id === cardId);
+        
+        console.log(set, card);
+        return Promise.resolve(card);
     }
 
     getUserInfo() {
