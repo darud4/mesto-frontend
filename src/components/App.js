@@ -150,16 +150,12 @@ function App() {
 
   function handleAddPlaceSubmit(newCard) {
     setCardButtonText(texts.BTN_CARDADD_PROGRESS);
-    console.log(cards);
     api
       .addCard(newCard)
       .then((res) => {
-        console.log(res, cards);
         setCards([res, ...cards]);
-        console.log(res, cards);
         closeAllPopups();
         setCardButtonText(texts.BTN_CARDADD);
-        console.log(res, cards);
       })
       .catch((err) => setCardButtonText(texts.BTN_CARDADD_ERROR));
   }

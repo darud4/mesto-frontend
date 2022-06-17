@@ -20,8 +20,6 @@ class DemoApi {
         const cardId = Math.floor(Math.random() * 899999999) + 100000000;
         const obj = { likes: [], name: place, link, owner: this._id, _id: cardId }
         this._cardsList = [obj, ...this._cardsList];
-        //        this._cardsList.push(obj);
-        console.log(obj, this._cardsList);
         return Promise.resolve({ ...obj });
     }
 
