@@ -85,11 +85,11 @@ class Api {
   }
 }
 
-// export const api = new Api({
-//   baseUrl: CONFIG.baseUrl,
-//   headers: {
-//     'Content-Type': 'application/json'
-//   },
-// });
+const realApi = new Api({
+  baseUrl: CONFIG.baseUrl,
+  headers: {
+    'Content-Type': 'application/json'
+  },
+});
 
-export { demoApi as api };
+export const api = CONFIG.mode === 'demo' ? demoApi : realApi;
